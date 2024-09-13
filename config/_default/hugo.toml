@@ -1,0 +1,14 @@
+baseURL = "http://localhost:1313/"
+languageCode = "en-us"
+title = "About aspose.ai"
+theme =  "doctheme"
+contentDir = "content"
+
+[params]
+dynamicmenuid = "aspose.ai-en"
+faviconfolder = "aspose"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true

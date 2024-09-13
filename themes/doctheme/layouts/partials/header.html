@@ -1,0 +1,95 @@
+<head>
+    <meta charset=utf-8>
+    <meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+
+    {{- if hugo.IsProduction | or (eq site.Params.env "production") }}
+    {{- template "_internal/google_analytics.html" . }}
+    {{- end -}}
+
+  
+      <!-- x-default -->
+    {{- if .IsTranslated -}}
+        {{ range .AllTranslations }}
+        <link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}" />
+        {{- end -}}
+        {{ range first 1 .AllTranslations }}
+        <link rel="alternate" hreflang="x-default" href="{{ .Permalink }}" />
+        {{- end -}}
+    {{ end }}
+
+    {{ if in .Site.BaseURL "about2" }}
+        <meta name="ROBOTS" content="NOINDEX, NOFOLLOW">
+    {{ end }} 
+    <title>{{ .Title}}</title>
+    
+    {{ with .Page.Params.description }}<meta name="description" content="{{ .Page.Params.description }}" /> {{end}}
+    {{ with .Keywords }}<meta name="keywords" content="{{ range $i, $e := . }}{{ if $i }} {{ end }}{{ $e }}{{ end }}">{{ end }}
+    <link rel=canonical href="{{.Permalink}}">
+
+    {{ $faviconfolder :=.Site.Params.faviconfolder }}
+    {{$filepath := print "/templates/" $faviconfolder "/favicon"}}
+    {{$staticfilepath := print "static/templates/" $faviconfolder "/favicon"}}
+    {{$applefavicon := print $filepath "/" "apple-touch-icon.png"}}
+    {{$applefaviconpath := print $staticfilepath "/" "apple-touch-icon.png"}}
+    {{$favicon32 := print $filepath "/" "favicon-32x32.png"}}
+    {{$favicon32path := print $staticfilepath "/" "favicon-32x32.png"}}
+    {{$favicon16 := print $filepath "/" "favicon-16x16.png"}}
+    {{$favicon16path := print $staticfilepath "/" "favicon-16x16.png"}}
+    {{$safari := print $filepath "/" "safari-pinned-tab.svg"}}
+    {{$safaripath := print $staticfilepath "/" "safari-pinned-tab.svg"}}
+    {{$favicon := print $filepath "/" "favicon.ico"}}
+    {{$faviconpath := print $staticfilepath "/" "favicon.ico"}}
+    {{$browserconfig := print $filepath "/" "browserconfig.xml"}}
+    {{$browserconfigpath := print $staticfilepath "/" "browserconfig.xml"}}
+
+    {{ $googlesiteverification :=.Site.Params.googlesiteverification }}
+    {{ if $googlesiteverification }}
+        <meta name="google-site-verification" content="{{ $googlesiteverification }}" />
+    {{ end }}    
+
+    {{ $yandexverification :=.Site.Params.yandexverification }}
+    {{ if $yandexverification }}
+        <meta name="yandex-verification" content="{{ $yandexverification }}" />
+    {{ end }}    
+
+    {{ $baidusiteverification :=.Site.Params.baidusiteverification }}
+    {{ if $baidusiteverification }}
+        <meta name="baidu-site-verification" content="{{ $baidusiteverification }}" />
+    {{ end }}    
+   
+    
+    {{ if (fileExists $faviconpath) -}}
+    <link rel="shortcut  icon" href="{{ $favicon }}">
+    {{- end }}
+
+    {{ if (fileExists $applefaviconpath ) -}}
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ $applefavicon }}">
+    {{- end }}
+
+    {{ if (fileExists $favicon32path ) -}}
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ $favicon32  }}">
+    {{- end }}
+
+    {{ if (fileExists $favicon16path ) -}}
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ $favicon16 }}">
+    {{- end }}
+
+    {{ if (fileExists $safaripath ) -}}
+    <link rel="mask-icon" href="{{ $safaripath }}" color="#5bbad5">
+    {{- end }}
+
+    {{ if (fileExists $browserconfigpath ) -}}
+    <meta name="msapplication-config" content="{{ $browserconfig }}">
+    {{- end }}
+
+    <script src=/js/jquery-3.6.0.slim.min.js></script>
+    <link rel=dns-prefetch href=https://fonts.gstatic.com>
+    <link rel=preconnect href=https://fonts.gstatic.com>
+    <link rel=stylesheet href=/css/common/bundle-docs.min.css>
+    <link rel=stylesheet href=/css/common/custom.css>
+    <link rel=stylesheet href=/css/common/search.css>
+    <link rel=stylesheet href=/css/common/flags.css>
+           
+    <link rel="stylesheet" href="https://www.aspose.com/css/locale.min.css" />
+    {{ if .Page.IsTranslated }} {{- partial "langswitcher.html" . -}} {{ end }}
+</head>

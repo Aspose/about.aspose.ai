@@ -1,0 +1,26 @@
+<div class="row" id="breadcrumb-am">
+    <div class=col-10>
+        <nav aria-label=breadcrumb class="d-none d-md-block d-print-none">
+            <!--<ol class="breadcrumb spb-1">
+                <li class=breadcrumb-item><a href=https://docs.groupdocs.com />Home</a></li>
+                <li class=breadcrumb-item><a
+                        href=https://docs.groupdocs.com/classification />GroupDocs.Classification
+                    Product Family</a></li>
+                <li class="breadcrumb-item active" aria-current=page><a
+                        href=https://docs.groupdocs.com/classification/net />GroupDocs.Classification
+                    for .NET</a></li>
+            </ol>-->
+            <ol class="breadcrumb spb-1">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                {{ $rellink := "" }}
+                {{ range (split .RelPermalink "/") }}
+                  {{ if gt (len . ) 0 -}}
+                    {{ $rellink = printf "%s/%s" $rellink . }}
+                    <li class="breadcrumb-item active"><a href="{{ $rellink }}">{{ humanize . }}</a></li>
+                  {{ end }}
+                {{ end }}
+              </ol>
+        </nav>
+    </div>
+    <div class="col-2 align-middle py-2"></div>
+</div>

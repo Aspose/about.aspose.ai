@@ -1,0 +1,33 @@
+<div class="custom">
+    <div class="col-md-3 vpanel">
+        <ul class="list-unstyled vmenu">
+            <li><a href="/./" rel="alternate"><i class="fa fa-desktop">&nbsp;</i> About</a></li>
+            {{ range $.Site.Sections.ByWeight }}
+            {{ if not (isset .Page.Params.Menu.Sidebarmenu "hide") }}
+                <li>
+                    <a href="{{ .Permalink }}" rel="alternate">
+                        <i class="{{ .Page.Params.Menu.Sidebarmenu.Pre }}">&nbsp;</i>
+                        {{ .Page.Params.Menu.Sidebarmenu.Name }}
+                    </a>
+                    {{ if not (isset .Page.Params.Menu.Sidebarmenu "nochild") }}
+                    <ul>
+                        {{ range .Pages.ByWeight }}
+                            {{ if not (isset .Page.Params.Menu.Sidebarmenu "hide") }}
+                            <li>
+                                <a href="{{ .Permalink }}" rel="alternate">
+                                    <i class="fa fa-chevron-circle-right"> </i> {{ .Page.Params.Menu.Sidebarmenu.Name }}
+                                </a>
+                            </li>
+                            {{ end }}
+                        {{ end }}
+                    </ul>
+                    {{ end }}
+                </li>
+                {{ end }}
+            {{ end }}
+
+        </ul>
+    </div>
+    <div id="gtx-trans"
+         style="position: absolute; left: -37px; top: 413.446px;"></div>
+</div>

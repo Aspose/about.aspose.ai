@@ -1,0 +1,52 @@
+{{ define "main" }}
+
+<div class="asposeptyltd containerize" id="single">
+    <!-- End of Header -->
+    <div class="item-page" itemscope itemtype="https://schema.org/Article">
+        <meta itemprop="inLanguage" content="en-GB"/>
+        <div itemprop="articleBody">
+            <div>
+                <div>
+                    <!-- "1054"  ARTICLE INFO -->
+                    <div class="item-page" itemscope itemtype="https://schema.org/Article">
+                        <meta itemprop="inLanguage" content="en-GB">
+                        <div itemprop="articleBody">
+                            <div class="container-fluid corporate-header tl header1">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-12 padding0">
+                                            <div class="padding0 col-lg-12">
+                                                <h1>{{ .Page.Params.Singlepageh1title }} </h1>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class=" container-fluid content2 vpanel-left corporatesections">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="moduletable">
+                                            <!--------------------- sitemenu homepage -------->
+                                            {{ partial "sidebar.html" . }}
+                                            <!--------------------- /sitemenu homepage -------->
+                                        </div>
+                                        <div class="col-md-9 lhs1 col-xs-12">
+                                            <div class="siteContentPanel100w"><!-- column -->
+                                                {{ .Content }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END: Articles Anywhere -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End of Content-->
+</div>
+
+
+{{ end }}

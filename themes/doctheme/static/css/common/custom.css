@@ -1,0 +1,51 @@
+
+@media screen and (min-width: 800px) {
+    .docs-sidenav{
+        max-width: 300px;
+    }
+}
+.panel-container2 .panel {
+    border-style: dashed!important;
+    margin-bottom: 20px;
+    background-color: #fff;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgb(0 0 0 / 5%);
+    box-shadow: 0 1px 1px rgb(0 0 0 / 5%);
+}
+.panel-container2 .panel-default {
+    border-color: #ddd !important;
+}
+
+.panel-container2 .panel-heading {
+    background: 0 0;
+    border-width: 0;
+    color: inherit;
+    font-weight: 700;
+    font-size: 20px;
+}
+.panel-container2 .panel-default>.panel-heading {
+    color: #333;
+    background-color: #f5f5f5;
+    border-color: #ddd;
+}
+.panel-container2 .panel-heading {
+    padding: 10px 15px;
+    border-bottom: 1px solid transparent;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+.panel-container2 .corporatesections .lhs1 ul {
+    margin-bottom: 0!important;
+}
+.panel-container2 UL.list-unstyled {
+    padding-left: 0;
+}
+.panel-container2 .panel-body {
+    color: #868686;
+}
+.panel-container2 .panel-body {
+    padding: 15px;
+}
+
+.panel-container2{margin-top:30px}.panel-container2 .panel{border-style:dashed!important}.panel-container2 .panel-body{color:#868686}.panel-container2 .panel-heading{background:0 0;border-width:0;color:inherit;font-weight:700;font-size:20px}.panel-container2 UL.list-unstyled{padding-left:0}.panel-container2 UL.list-unstyled li{border-bottom:1px solid #e3e3e3;padding-left:5px;padding-right:5px;line-height:35px}.panel-container2 UL.list-unstyled li:last-child{border-bottom:0}.panel-container2.ventures .panel{margin-bottom:40px}.panel-container2.ventures .panel-body{position:relative;padding-left:86px}.panel-container2.ventures .venture-logo{position:absolute;left:-8px;top:-16px}.seperator1 .col-md-3{height:4px}.seperator1 .col-md-3:nth-child(1){background:#a2c43a}.seperator1 .col-md-3:nth-child(2){background:#3481b5}.seperator1 .col-md-3:nth-child(3){background:#fc7c2a}.seperator1 .col-md-3:nth-child(4){background:#e7d63b}

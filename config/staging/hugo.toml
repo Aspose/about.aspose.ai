@@ -1,0 +1,16 @@
+baseURL = "https://about-qa.aspose.ai/"
+
+[deployment]
+
+[[deployment.targets]]
+name = "Home"
+URL = "s3://about-qa.aspose.ai/?region=us-west-2"
+
+[[deployment.matchers]]
+# Set custom content type for /sitemap.xml
+#pattern = "^sitemap\\.xml$"
+#pattern = "^[a-z]\\.xml$"
+pattern = "^.+\\.(xml)$"
+contentType = "application/xml"
+gzip = true
+force = true

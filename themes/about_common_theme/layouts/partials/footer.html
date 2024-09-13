@@ -1,0 +1,100 @@
+<!-- Footer -->
+{{ $dynamicmenuid :=.Site.Params.dynamicmenuid }}
+<div id="back-top"><a class="backtop" style="cursor: pointer; display: none;">&nbsp;</a></div>
+<script>(function (i, s, o, g, r, a, m) {
+    i['ContainerizeMenuObject'] = r;
+    i[r] = i[r] || function () {
+        (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date();
+    a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+    a.async = 1;
+    a.src = g;
+    m.parentNode.append(a)
+})(window, document, 'script', 'https://menu-new.containerize.com/scripts/engine.min.js?v=1.0.1', '{{ $dynamicmenuid }}');</script>
+<script>$(document).ready(function () {
+    $('.carousel').carousel({interval: false});
+    $('.siteTop_ContentContainer').find("button").click(function () {
+        $("#navbar-button").toggleClass("topbutton");
+        updatePricing();
+    });
+});</script>
+<script>$(function () {
+    $('a[href*="#"]:not([href="#"])').click(function () {
+        if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+            var target = $(this.hash);
+            target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+            if (target.length) {
+                $('html, body').animate({scrollTop: target.offset().top}, 1000);
+                return false;
+            }
+        }
+    });
+});</script>
+<script>$(document).ready(function () {
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 150) {
+            $('.backtop').fadeIn();
+        } else {
+            $('.backtop').fadeOut();
+        }
+    });
+    $('.backtop').click(function () {
+        $("html, body").animate({scrollTop: 0}, 600);
+        return false;
+    });
+});</script>
+<script>$(document).ready(function () {
+    var $stickytop = $('.stickytop');
+    $(".sub-menu-container").prepend('<div id="sticky' + ($stickytop.length + 1) + '" class="stickytopheight">&nbsp;</div>');
+    var stickyNavTop = $('.stickytopheight').offset().top;
+    var stickyNav = function () {
+        var scrollTop = $(window).scrollTop();
+        if (scrollTop > stickyNavTop) {
+            $('.sub-menu-container').addClass('stickysubmenu');
+            $('.content2').addClass('pd88');
+            $('.rhs-menu .rhs-box ').addClass('rhs-fixed');
+        } else {
+            $('.sub-menu-container').removeClass('stickysubmenu');
+            $('.content2').removeClass('pd88');
+            $('.rhs-menu .rhs-box ').removeClass('rhs-fixed');
+        }
+    };
+    stickyNav();
+    $(window).scroll(function () {
+        stickyNav();
+    });
+});</script>
+<script>$(function () {
+    $(".nav-center li a").on("click", function () {
+        $(".nav-center li a.activetab").removeClass("activetab");
+        $(this).addClass("activetab");
+    });
+});</script>
+<script>$(document).ready(function () {
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        $(".mobileanchor").attr("href", "#")
+    }
+});</script>
+<script>$(window).scroll(function () {
+    var windscroll = $(window).scrollTop();
+    if (windscroll >= 100) {
+        $('.anchor').each(function (i) {
+            if ($(this).position().top <= windscroll + 170) {
+                $('.nav a.active').removeClass('active');
+                $('.nav a').eq(i).addClass('active');
+            }
+        });
+    } else {
+        $('.nav a.active').removeClass('active');
+        $('.nav a:first').addClass('active');
+    }
+}).scroll();
+$('.profuctfamilyrhs .api-link a').click(function () {
+    if ($(this).hasClass('activeurl')) {
+        $('.profuctfamilyrhs .api-link a').removeClass('activeurl')
+    } else {
+        $('.profuctfamilyrhs .api-link a').removeClass('activeurl')
+        $(this).addClass('activeurl')
+    }
+});</script>
+<link rel="stylesheet" href="https://cms.admin.containerize.com/templates/aspose/App_Themes/optimize/corporate.css"  type="text/css">

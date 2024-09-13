@@ -1,0 +1,86 @@
+<div class="docs-sidenav order-0 col-12 col-sm-3 col-md-3 col-lg-3 col-xl-3 position-sticky border-right" id="navbar-am">
+    <nav class="navbar navbar-expand-md navbar-light pl-0"><button
+            class="navbar-toggler navbar-toggler-right collapsed" type=button data-toggle=collapse
+            data-target=#sidenav-left-collapse aria-controls=sidenav-left-collapse aria-expanded=false
+            aria-label="Toggle navigation">
+            <span class=navbar-toggler-icon></span></button>
+        <div class="collapse navbar-collapse align-items-start flex-column" id=sidenav-left-collapse>
+            <!--<fess:search></fess:search>-->
+            <div class="fessWrapper"><div class="fessForm">
+                <!-- <form _lpchecked="1"> -->
+                <table style="width:100%">
+                  <tbody>
+                    <tr>
+                      <td>
+                        <div>
+                          <input type="text" name="q" maxlength="1000" size="50" autocomplete="off" id="contentQuery" placeholder="{{ if .Page.IsTranslated }}{{ .Site.Params.Search }}{{else}}Search{{ end }}..." class="query form-control center-block">
+                        </div>
+                      </td>
+                      <td>
+                        <div>
+                          <button type="button" id="searchButton" name="search" class="searchButton btn btn-primary"><i class="fa fa-search"></i></button>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              <!-- </form> -->
+              </div><div class="fessResult"></div></div>
+
+            <!--<div id="fastSearch">
+                <input id="searchInput" tabindex="0">
+                <ul id="searchResultsold">
+                </ul>
+              </div>-->
+            <ul class="navbar-nav flex-column pt-3">
+
+                <ul class="list-unstyled ml-2" id="home" >
+                    {{ $currentsection :=.Section }}
+                    {{ $currentbrowserlink := . }}
+                    <li data-nav-id="/" class="nav-item my-2">
+                        <a class="nav-link p-0 " href="/">{{ .Site.Params.Homepagelink }}</a> 
+                    </li>
+                    {{ range $.Site.Sections.ByWeight }}
+                        {{ $currentsectionpagelink := . }}
+                        {{ if not (isset .Page.Params.Menu.Sidebarmenu "hide") }}
+                                {{ if not (isset .Page.Params.Menu.Sidebarmenu "nochild") }}
+                                    {{ $loopsection :=.Section }}
+                                    <li data-nav-id="{{ .Permalink }}" class="nav-item my-2" data-section="{{$currentsection}}" data-loopsection="{{ $loopsection }}">
+                                        {{ $expended := "aria-expanded='false'" }}
+                                        {{ if eq $currentsection $loopsection }}
+                                            {{ $expended := "aria-expanded='true'" }}
+                                        {{end}}
+                                        <a class=collapsable-menu-icon {{$expended}} data-toggle=collapse data-target='#{{ replaceRE "(\\s)" "" .Page.Params.Menu.Sidebarmenu.Name }}' aria-expanded=false role=button aria-controls='{{ replaceRE "(\\s)" "" .Page.Params.Menu.Sidebarmenu.Name }}'></a>
+                                        <a href="{{ .Permalink }}" class="nav-link p-0 {{ if eq $currentbrowserlink.RelPermalink $currentsectionpagelink.RelPermalink }} active {{ end }} ">{{ .Page.Params.Menu.Sidebarmenu.Name }}</a> 
+                                        
+                                        {{ if eq $currentsection $loopsection }}
+                                        <ul class="list-unstyled ml-2 collapse show" id='{{ replaceRE "(\\s)" "" .Page.Params.Menu.Sidebarmenu.Name }}'>
+                                        {{else}}
+                                        <ul class="list-unstyled ml-2 collapse" id='{{ replaceRE "(\\s)" "" .Page.Params.Menu.Sidebarmenu.Name }}'>
+                                        {{end}}
+                                        {{ range .Pages.ByWeight }}
+                                            {{ $currentsectionpageinnerlink := . }}
+                                            {{ if not (isset .Page.Params.Menu.Sidebarmenu "hide") }}
+                                            <li data-nav-id="{{ .Permalink }}" class="nav-item my-2 ">
+                                                <a href="{{ .Permalink }}" class="nav-link p-0 {{ if eq $currentbrowserlink.RelPermalink $currentsectionpageinnerlink.RelPermalink }} active {{ end }} ">{{ .Page.Params.Menu.Sidebarmenu.Name }}</a>
+                                            </li>
+                                        {{end}}
+                                {{end}}
+                                    </ul>
+                                </li>
+
+                        {{else}}
+
+                        <li data-nav-id="{{ .Permalink }}" class="nav-item my-2">
+                            <a class="nav-link p-0 {{ if eq $currentbrowserlink.RelPermalink $currentsectionpagelink.RelPermalink }} active {{ end }}" href="{{ .Permalink }}" >{{ .Page.Params.Menu.Sidebarmenu.Name }}</a> 
+                        </li>
+                        {{end}}
+                        
+                        {{end}}    
+                    {{end}}
+                </ul>
+                
+            </ul>
+        </div>
+    </nav>
+</div>

@@ -1,0 +1,16 @@
+{{ define "main" }}
+<div class=container-fluid style=margin-top:60px>
+    <div class=row style=background:#fff!important>
+          <!----------- sidebar -------->
+        {{ partial "sidebar.html" . }}
+          <!--------------- /sidebar -------->
+        <div class="main col-12 order-1 col-sm-9 col-md-9 col-lg-9 col-xl-9 py-3">
+              <!--------------------- breadcrumb -------->
+            {{ partial "breadcrumb.html" . }}
+              <!--------------------- /breadcrumb -------->
+              <h1>{{ .Page.Params.Singlepageh1title }}</h1>
+                {{.Content}}
+        </div>
+    </div>
+</div>
+{{ end }}
