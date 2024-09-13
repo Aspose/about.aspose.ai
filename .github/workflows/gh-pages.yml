@@ -30,7 +30,7 @@ jobs:
     
       - name: Deploy About to S3
         # run: hugo deploy --maxDeletes -1 --target "production"
-        run: hugo deploy --maxDeletes -1 --target "prod"
+        run: hugo deploy --maxDeletes -1 --target "production"
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.SECRET_ACCESS }}

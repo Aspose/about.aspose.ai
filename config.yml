@@ -601,7 +601,7 @@ menu:
 
 deployment:
   targets:
-    name: "qa"
-    URL: "s3://about.aspose.ai/?region=us-west-2"
-    # name: "production"
+    # name: "qa"
     # URL: "s3://about.aspose.ai/?region=us-west-2"
+    name: "production"
+    URL: "s3://about.aspose.ai/?region=us-west-2"
