@@ -48,6 +48,7 @@ params:
     apple_touch_icon:  "/img/aspose-apple-touch-icon.png"
     safari_pinned_tab:  "/img/aspose-safari-pinned-tab.svg"
 
+  dynamicmenuid: "aspose.ai-en"
   #dynamicmenuid:
     #en: aspose.ai-en
     # ja: aspose-ja

@@ -1,8 +1,5 @@
 baseURL = "https://about.aspose.ai/"
 
-[params]
-dynamicmenuid = "aspose.ai-en"
-faviconfolder = "aspose"
 
 [services.googleAnalytics]
 ID = "G-ZHJP7PJ5MD"
