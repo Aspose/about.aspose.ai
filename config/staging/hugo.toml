@@ -1,5 +1,9 @@
 baseURL = "https://about-qa.aspose.ai/"
 
+[params]
+dynamicmenuid = "aspose.ai-en"
+faviconfolder = "aspose"
+
 [deployment]
 
 [[deployment.targets]]
