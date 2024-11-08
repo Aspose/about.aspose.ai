@@ -7,12 +7,19 @@
         {{ $googletagmanager :=.Site.Params.googletagmanager }}
         {{ if $googletagmanager }}
         <!-- Google Tag Manager (noscript) -->
-            <noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ $googletagmanager }}"
-            height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+            <!-- <noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ $googletagmanager }}"
+            height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> -->
         <!-- End Google Tag Manager (noscript) -->
         {{ end }}
     {{ end }}   
     <div id="content">
+        <script src="https://www.consentise.com/v1.2/consent-min.js"
+        data-cookiedomain=".aspose.ai"
+        data-privacy-policy-url="https://about.aspose.ai/legal/privacy-policy"
+        data-preferred-color="#4FA5D3"
+        data-default-language="en"
+        defer>
+</script>
     {{- block "main" . }}{{- end }}
     </div>
     {{- partial "footer.html" . -}}  
