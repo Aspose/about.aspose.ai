@@ -192,6 +192,35 @@
         }
     }
 </style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZHJP7PJ5MD"></script>
+<script>
+    // Consent Management (must be done before tracking starts)
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+
+    gtag('consent', 'default', {
+        'ad_storage': 'denied',
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied',
+        'analytics_storage': 'denied'
+    });
+
+    gtag('set', 'url_passthrough', true);
+    gtag('set', 'ads_data_redaction', true);
+
+    // Initialize Google Analytics (after consent setup)
+    gtag('js', new Date());
+
+    gtag('config', 'G-ZHJP7PJ5MD');
+</script>
+<!-- UET Consent Settings (specific to Microsoft Advertising) -->
+<script>
+    window.uetq = window.uetq || [];
+    window.uetq.push('consent', 'default', {
+        'ad_storage': 'denied'
+    });
+</script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://cms.admin.containerize.com/templates/aspose/js/bootstrap.js" type="text/javascript"></script>
 <script src="https://cms.admin.containerize.com/templates/aspose/js//highlight.site.pack.js"></script>
