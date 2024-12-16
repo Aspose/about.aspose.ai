@@ -9,9 +9,9 @@ weight: 1
 
 ---
 
-#### File Format Copilots
+#### File Format AI Agents
 
-AI based copilots to assist you work with various file formats including Word, PDF, Excel, and other.
+AI agents to assist you work with various file formats including Word, PDF, Excel, and other.
 
 #### Our websites
 

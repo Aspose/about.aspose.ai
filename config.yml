@@ -19,8 +19,8 @@ minify:
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
   title: Aspose AI About Us
-  description: "AI Copilots to perform various tasks related to Word, PDF, Excel, PowerPoint, image, and other popular file formats."
-  keywords: ["About Aspose.AI", "ai copilots", "ai tools", "ai document tools", "ai document apps", "ai word copilot", "ai pdf copilot", "ai excel copilot", "ai powerpoint copilot"]
+  description: "AI Agents to perform various tasks related to Word, PDF, Excel, PowerPoint, image, and other popular file formats."
+  keywords: ["About Aspose.AI", "ai agents", "ai tools", "ai document tools", "ai document apps", "ai word agent", "ai pdf agent", "ai excel agent", "ai powerpoint agent"]
   mainSections: # Add name of each folder under content folder that contains blog posts.
   - Aspose.AI # https://gohugo.io/functions/where/#mainsections 
   ShowShareButtons: true
