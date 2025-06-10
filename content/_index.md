@@ -9,7 +9,7 @@ weight: 1
 
 ---
 
-#### File Format AI Agents
+#### File Format Agents
 
 AI agents to assist you work with various file formats including Word, PDF, Excel, and other.
 
