@@ -1,0 +1,43 @@
+name: github-pages-ceph # Workflow name
+
+on:
+  push:
+    branches:
+      - main  # Set a branch to deploy
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout about repo
+        uses: actions/checkout@main
+        with:
+          repository: Aspose/about.aspose.ai
+          token: ${{ secrets.REPO_TOKEN }}
+          #submodules: true  # Fetch Hugo themes (true OR recursive)
+          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2.4.13
+        with:
+          hugo-version: '0.101.0'
+          extended: true
+      
+      - name: Build
+        run: hugo --config "config.yml" --cleanDestinationDir --minify
+    
+      # Use Ceph S3-compatible endpoint instead of AWS S3
+      # Set Access Control List to allow public read access for all synced files
+      # Delete files in destination that don't exist in source directory
+      - name: Sync files to Ceph-based S3 # compatible storage system
+        run: | # Executes the following shell command. Syncs the local ./public/ directory with the s3 bucket named qa-about-aspose.ai
+            aws s3 sync ./public/ s3://about-aspose-ai/ \
+            --endpoint-url https://s3.dynabic.com \
+            --acl public-read \
+            --delete
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.CEPH_S3_ACCESS_KEY }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.CEPH_S3_SECRET_ACCESS }}
+          AWS_DEFAULT_REGION: us-east-1
