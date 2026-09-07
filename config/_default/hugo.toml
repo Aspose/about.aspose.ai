@@ -5,7 +5,7 @@ theme =  "doctheme"
 contentDir = "content"
 
 [params]
-dynamicmenuid = "aspose.ai-en"
+dynamicmenuid = "asposeai-en"
 faviconfolder = "aspose"
 
 [markup]
