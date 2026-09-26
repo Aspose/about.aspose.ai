@@ -39,3 +39,16 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.CEPH_S3_ACCESS_KEY }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.CEPH_S3_SECRET_ACCESS }}
           AWS_DEFAULT_REGION: us-east-1
+
+      - name: Purge BunnyCDN Cache
+        run: |
+          for url in \
+            "https://about.aspose.ai/" \
+            "https://about.aspose.ai/contact/" \
+            "https://about.aspose.ai/index.html"
+          do
+            curl -siG \
+              -H "X-Api-Key: ${{ secrets.BUNNY_API_KEY }}" \
+              --data-urlencode "url=${url}" \
+              "https://api.dynabic.com/bn/purge?async=true"
+          done
