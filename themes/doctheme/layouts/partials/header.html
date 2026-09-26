@@ -42,6 +42,7 @@
     {{$faviconpath := print $staticfilepath "/" "favicon.ico"}}
     {{$browserconfig := print $filepath "/" "browserconfig.xml"}}
     {{$browserconfigpath := print $staticfilepath "/" "browserconfig.xml"}}
+    {{ $assets := site.Params.assets }}
 
     {{ $googlesiteverification :=.Site.Params.googlesiteverification }}
     {{ if $googlesiteverification }}
@@ -59,23 +60,35 @@
     {{ end }}    
    
     
-    {{ if (fileExists $faviconpath) -}}
-    <link rel="shortcut  icon" href="{{ $favicon }}">
+    {{ if $assets.favicon -}}
+    <link rel="icon" href="{{ $assets.favicon }}">
+    <link rel="shortcut icon" href="{{ $assets.favicon }}">
+    {{- else if (fileExists $faviconpath) -}}
+    <link rel="icon" href="{{ $favicon }}">
+    <link rel="shortcut icon" href="{{ $favicon }}">
     {{- end }}
 
-    {{ if (fileExists $applefaviconpath ) -}}
+    {{ if $assets.apple_touch_icon -}}
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ $assets.apple_touch_icon }}">
+    {{- else if (fileExists $applefaviconpath ) -}}
     <link rel="apple-touch-icon" sizes="180x180" href="{{ $applefavicon }}">
     {{- end }}
 
-    {{ if (fileExists $favicon32path ) -}}
+    {{ if $assets.favicon32x32 -}}
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ $assets.favicon32x32 }}">
+    {{- else if (fileExists $favicon32path ) -}}
     <link rel="icon" type="image/png" sizes="32x32" href="{{ $favicon32  }}">
     {{- end }}
 
-    {{ if (fileExists $favicon16path ) -}}
+    {{ if $assets.favicon16x16 -}}
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ $assets.favicon16x16 }}">
+    {{- else if (fileExists $favicon16path ) -}}
     <link rel="icon" type="image/png" sizes="16x16" href="{{ $favicon16 }}">
     {{- end }}
 
-    {{ if (fileExists $safaripath ) -}}
+    {{ if $assets.safari_pinned_tab -}}
+    <link rel="mask-icon" href="{{ $assets.safari_pinned_tab }}" color="#5bbad5">
+    {{- else if (fileExists $safaripath ) -}}
     <link rel="mask-icon" href="{{ $safaripath }}" color="#5bbad5">
     {{- end }}
 
