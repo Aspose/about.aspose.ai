@@ -5,8 +5,10 @@ theme =  "doctheme"
 contentDir = "content"
 
 [params]
-dynamicmenuid = "asposeai-en"
 faviconfolder = "aspose"
+
+[params.dynamicmenuid]
+en = "asposeai-en"
 
 [markup]
   [markup.goldmark]

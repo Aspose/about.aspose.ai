@@ -18,7 +18,7 @@
                       </td>
                       <td>
                         <div>
-                          <button type="button" id="searchButton" name="search" class="searchButton btn btn-primary"><i class="fa fa-search"></i></button>
+                          <button type="button" id="searchButton" name="search" class="searchButton btn btn-primary" aria-label="Search"><i class="fa fa-search" aria-hidden="true"></i></button>
                         </div>
                       </td>
                     </tr>
@@ -50,7 +50,7 @@
                                         {{ if eq $currentsection $loopsection }}
                                             {{ $expended := "aria-expanded='true'" }}
                                         {{end}}
-                                        <a class=collapsable-menu-icon {{$expended}} data-toggle=collapse data-target='#{{ replaceRE "(\\s)" "" .Page.Params.Menu.Sidebarmenu.Name }}' aria-expanded=false role=button aria-controls='{{ replaceRE "(\\s)" "" .Page.Params.Menu.Sidebarmenu.Name }}'></a>
+                                        <a class=collapsable-menu-icon {{$expended}} data-toggle=collapse data-target='#{{ replaceRE "(\\s)" "" .Page.Params.Menu.Sidebarmenu.Name }}' aria-expanded=false role=button aria-controls='{{ replaceRE "(\\s)" "" .Page.Params.Menu.Sidebarmenu.Name }}' aria-label="Expand {{ .Page.Params.Menu.Sidebarmenu.Name }} section"></a>
                                         <a href="{{ .Permalink }}" class="nav-link p-0 {{ if eq $currentbrowserlink.RelPermalink $currentsectionpagelink.RelPermalink }} active {{ end }} ">{{ .Page.Params.Menu.Sidebarmenu.Name }}</a> 
                                         
                                         {{ if eq $currentsection $loopsection }}

@@ -1,5 +1,6 @@
 ---
 title: Contact - About - aspose.ai
+description: "Contact Aspose.ai for product questions, support, and partnership inquiries."
 
 singlepageh1title: Contact Us
 

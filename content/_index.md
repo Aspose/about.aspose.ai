@@ -1,5 +1,6 @@
 ---
 title: About Us - aspose.ai
+description: "About Aspose.ai — company information, websites, and file-format AI agents for Word, PDF, Excel, PowerPoint, and more."
 
 singlepageh1title: About Us
 singlepageh2title:  aspose.ai

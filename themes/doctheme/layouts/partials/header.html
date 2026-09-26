@@ -22,7 +22,8 @@
     {{ end }} 
     <title>{{ .Title}}</title>
     
-    {{ with .Page.Params.description }}<meta name="description" content="{{ .Page.Params.description }}" /> {{end}}
+    {{ $description := .Params.description | default site.Params.description }}
+    {{ with $description }}<meta name="description" content="{{ . }}">{{ end }}
     {{ with .Keywords }}<meta name="keywords" content="{{ range $i, $e := . }}{{ if $i }} {{ end }}{{ $e }}{{ end }}">{{ end }}
     <link rel=canonical href="{{.Permalink}}">
 
