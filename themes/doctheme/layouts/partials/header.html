@@ -21,6 +21,8 @@
         <meta name="ROBOTS" content="NOINDEX, NOFOLLOW">
     {{ end }} 
     <title>{{ .Title}}</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/aspose-32x32.png">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
     
     {{ $description := .Params.description | default site.Params.description }}
     {{ with $description }}<meta name="description" content="{{ . }}">{{ end }}
