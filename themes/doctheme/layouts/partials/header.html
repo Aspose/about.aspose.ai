@@ -21,30 +21,11 @@
         <meta name="ROBOTS" content="NOINDEX, NOFOLLOW">
     {{ end }} 
     <title>{{ .Title}}</title>
-    <link rel="icon" type="image/png" sizes="32x32" href="/img/aspose-32x32.png">
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
     
     {{ $description := .Params.description | default site.Params.description }}
     {{ with $description }}<meta name="description" content="{{ . }}">{{ end }}
     {{ with .Keywords }}<meta name="keywords" content="{{ range $i, $e := . }}{{ if $i }} {{ end }}{{ $e }}{{ end }}">{{ end }}
     <link rel=canonical href="{{.Permalink}}">
-
-    {{ $faviconfolder :=.Site.Params.faviconfolder }}
-    {{$filepath := print "/templates/" $faviconfolder "/favicon"}}
-    {{$staticfilepath := print "static/templates/" $faviconfolder "/favicon"}}
-    {{$applefavicon := print $filepath "/" "apple-touch-icon.png"}}
-    {{$applefaviconpath := print $staticfilepath "/" "apple-touch-icon.png"}}
-    {{$favicon32 := print $filepath "/" "favicon-32x32.png"}}
-    {{$favicon32path := print $staticfilepath "/" "favicon-32x32.png"}}
-    {{$favicon16 := print $filepath "/" "favicon-16x16.png"}}
-    {{$favicon16path := print $staticfilepath "/" "favicon-16x16.png"}}
-    {{$safari := print $filepath "/" "safari-pinned-tab.svg"}}
-    {{$safaripath := print $staticfilepath "/" "safari-pinned-tab.svg"}}
-    {{$favicon := print $filepath "/" "favicon.ico"}}
-    {{$faviconpath := print $staticfilepath "/" "favicon.ico"}}
-    {{$browserconfig := print $filepath "/" "browserconfig.xml"}}
-    {{$browserconfigpath := print $staticfilepath "/" "browserconfig.xml"}}
-    {{ $assets := site.Params.assets }}
 
     {{ $googlesiteverification :=.Site.Params.googlesiteverification }}
     {{ if $googlesiteverification }}
@@ -62,41 +43,14 @@
     {{ end }}    
    
     
-    {{ if $assets.favicon -}}
-    <link rel="icon" href="{{ $assets.favicon }}">
-    <link rel="shortcut icon" href="{{ $assets.favicon }}">
-    {{- else if (fileExists $faviconpath) -}}
-    <link rel="icon" href="{{ $favicon }}">
-    <link rel="shortcut icon" href="{{ $favicon }}">
-    {{- end }}
-
-    {{ if $assets.apple_touch_icon -}}
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ $assets.apple_touch_icon }}">
-    {{- else if (fileExists $applefaviconpath ) -}}
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ $applefavicon }}">
-    {{- end }}
-
-    {{ if $assets.favicon32x32 -}}
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ $assets.favicon32x32 }}">
-    {{- else if (fileExists $favicon32path ) -}}
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ $favicon32  }}">
-    {{- end }}
-
-    {{ if $assets.favicon16x16 -}}
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ $assets.favicon16x16 }}">
-    {{- else if (fileExists $favicon16path ) -}}
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ $favicon16 }}">
-    {{- end }}
-
-    {{ if $assets.safari_pinned_tab -}}
-    <link rel="mask-icon" href="{{ $assets.safari_pinned_tab }}" color="#5bbad5">
-    {{- else if (fileExists $safaripath ) -}}
-    <link rel="mask-icon" href="{{ $safaripath }}" color="#5bbad5">
-    {{- end }}
-
-    {{ if (fileExists $browserconfigpath ) -}}
-    <meta name="msapplication-config" content="{{ $browserconfig }}">
-    {{- end }}
+    {{- /* Favicons — same markup as blog.aspose.ai */}}
+    <link rel="icon" href="{{ .Site.Params.assets.favicon | default "favicon.ico" | absURL }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ .Site.Params.assets.favicon16x16 | default "favicon-16x16.png" | absURL }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ .Site.Params.assets.favicon32x32 | default "favicon-32x32.png" | absURL }}">
+    <link rel="apple-touch-icon" href="{{ .Site.Params.assets.apple_touch_icon | default "apple-touch-icon.png" | absURL }}">
+    <link rel="mask-icon" href="{{ .Site.Params.assets.safari_pinned_tab | default "safari-pinned-tab.svg" | absURL }}">
+    <meta name="theme-color" content="{{ .Site.Params.assets.theme_color | default "#2e2e33" }}">
+    <meta name="msapplication-TileColor" content="{{ .Site.Params.assets.msapplication_TileColor | default "#2e2e33" }}">
 
     <script src=/js/jquery-3.6.0.slim.min.js></script>
     <link rel=dns-prefetch href=https://fonts.gstatic.com>
