@@ -41,7 +41,6 @@ jobs:
           AWS_DEFAULT_REGION: us-east-1
 
       - name: Purge BunnyCDN Cache
-        continue-on-error: true
         env:
           BUNNY_API_KEY: ${{ secrets.BUNNY_API_KEY }}
         run: |
@@ -54,24 +53,16 @@ jobs:
             "https://about.aspose.ai" \
             "https://about.aspose.ai/" \
             "https://about.aspose.ai/index.html" \
-            "https://about.aspose.ai/contact" \
             "https://about.aspose.ai/contact/" \
-            "https://about-aspose-ai.b-cdn.net" \
             "https://about-aspose-ai.b-cdn.net/"
           do
             code=$(curl -sS -o /tmp/purge-body.txt -w "%{http_code}" -G \
               -H "X-Api-Key: ${BUNNY_API_KEY}" \
               --data-urlencode "url=${url}" \
-              "https://api.dynabic.com/bn/purge?async=false")
+              "https://api.dynabic.com/bn/purge?async=true")
             echo "dynabic purge ${url} -> HTTP ${code}"
             case "$code" in 2*|3*) ok=1 ;; esac
           done
-          zone=$(curl -sS -o /tmp/purge-zone.txt -w "%{http_code}" -X POST \
-            "https://api.bunny.net/pullzone/6180548/purgeCache" \
-            -H "AccessKey: ${BUNNY_API_KEY}" \
-            -H "Content-Type: application/json")
-          echo "bunny pullzone 6180548 purgeCache -> HTTP ${zone}"
-          case "$zone" in 2*|3*) ok=1 ;; esac
           if [ "$ok" -ne 1 ]; then
             echo "CDN purge failed; live about.aspose.ai/ will stay on the cached HTML"
             exit 1
